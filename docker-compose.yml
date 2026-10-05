@@ -1,0 +1,11 @@
+services:
+  market-engine:
+    build: .
+    container_name: kronos_market_engine
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./market_engine.db:/app/market_engine.db
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
